@@ -1,34 +1,25 @@
-console.log("build it is running");
+let visibility = false;
 
-const app = {
-    show: "Show Details",
-    title: "Show Details",
-    otherTitle: "Hide Details",
-    text: "",
-};
-
-const onToggle = () => {
-    if (app.show == app.title) {
-        app.show = app.otherTitle;
-        app.text = "hellooo";
-    } else {
-        app.show = app.title;
-        app.text = "";
-    }
+const toggleVisibility = () => {
+    visibility = !visibility;
     render();
 };
 
-const appRoot = document.getElementById("app");
-
 const render = () => {
-    const template = (
+    const jsx = (
         <div>
             <h1>Visibility Toggle</h1>
-            <button onClick={onToggle}>{app.show}</button>
-            <p>{app.text}</p>
+            <button onClick={toggleVisibility}>
+                {visibility ? "Hide Details" : "Show Details"}
+            </button>
+            {visibility && (
+                <div>
+                    <p>These are the details you can now see</p>
+                </div>
+            )}
         </div>
     );
-    ReactDOM.render(template, appRoot);
+    ReactDOM.render(jsx, document.getElementById("app"));
 };
 
 render();
