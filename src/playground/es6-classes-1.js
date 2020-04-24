@@ -29,6 +29,11 @@ class Student extends Person {
     }
 }
 
+/*
+A logical NOT operator ! converts a value to a boolean that is the opposite of its logical value.
+
+The second ! converts the previous boolean result back to the boolean representation of its original logical value.
+*/
 class Traveller extends Person {
     constructor(name, age, homeLocation) {
         super(name, age);
