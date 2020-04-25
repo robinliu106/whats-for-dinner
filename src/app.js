@@ -6,7 +6,7 @@ class IndecisionApp extends React.Component {
         this.handlePick = this.handlePick.bind(this);
         this.handleAddOption = this.handleAddOption.bind(this);
         this.state = {
-            options: props.options,
+            options: [],
         };
     }
     //life cycle methods
@@ -15,9 +15,7 @@ class IndecisionApp extends React.Component {
             const json = localStorage.getItem("options");
             const options = JSON.parse(json);
             if (options) {
-                this.setState(() => {
-                    options;
-                });
+                this.setState(() => ({ options }));
             }
         } catch (error) {
             //Do nothing if json data from form is invalid
@@ -30,9 +28,6 @@ class IndecisionApp extends React.Component {
             localStorage.setItem("options", json);
             console.log("saving data");
         }
-    }
-    componentWillUnmount() {
-        console.log("component will unmount");
     }
     handleDeleteOptions() {
         this.setState(() => ({ options: [] }));
@@ -80,10 +75,6 @@ class IndecisionApp extends React.Component {
         );
     }
 }
-
-IndecisionApp.defaultProps = {
-    options: [],
-};
 
 const Header = (props) => {
     return (
@@ -172,7 +163,4 @@ class AddOption extends React.Component {
     }
 }
 
-ReactDOM.render(
-    <IndecisionApp options={["option one", "option 2"]} />,
-    document.getElementById("app")
-);
+ReactDOM.render(<IndecisionApp />, document.getElementById("app"));
