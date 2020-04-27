@@ -5,4 +5,13 @@ module.exports = {
         path: path.join(__dirname, "public"),
         filename: "bundle.js",
     },
+    module: {
+        rules: [
+            {
+                loader: "babel-loader", //run files through babel
+                test: /\.js$/, //files that end with .js
+                exclude: /node_modules/,
+            },
+        ],
+    },
 };
