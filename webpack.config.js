@@ -12,6 +12,10 @@ module.exports = {
                 test: /\.js$/, //files that end with .js
                 exclude: /node_modules/,
             },
+            {
+                test: /\.scss$/,
+                use: ["style-loader", "css-loader", "sass-loader"],
+            },
         ],
     },
     devtool: "cheap-module-eval-source-map", //source map
