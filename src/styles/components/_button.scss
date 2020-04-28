@@ -24,8 +24,8 @@
     padding: $s-size;
 }
 
-//bem
-.button--link {
+//bem get attributes from button and override
+.button__link {
     background: none;
     border: none;
     color: $off-white;
