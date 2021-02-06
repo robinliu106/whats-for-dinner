@@ -4,10 +4,13 @@
     "main": "index.js",
     "author": "Robin Liu",
     "license": "MIT",
+    "homepage": "https://robinliu106.github.io/whats-for-dinner",
     "scripts": {
         "serve": "live-server public/",
         "build": "webpack",
-        "dev-server": "webpack-dev-server"
+        "dev-server": "webpack-dev-server",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
     },
     "dependencies": {
         "babel-cli": "6.24.1",
@@ -18,7 +21,7 @@
         "babel-preset-react": "6.24.1",
         "css-loader": "0.28.4",
         "live-server": "^1.2.1",
-        "node-sass": "^4.14.0",
+        "node-sass": "4.14.1",
         "normalize.css": "^8.0.1",
         "react": "16.8.0",
         "react-dom": "16.8.0",
@@ -28,5 +31,8 @@
         "validator": "8.0.0",
         "webpack": "3.1.0",
         "webpack-dev-server": "2.5.1"
+    },
+    "devDependencies": {
+        "gh-pages": "^3.1.0"
     }
 }
